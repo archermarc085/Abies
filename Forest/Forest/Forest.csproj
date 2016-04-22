@@ -41,13 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Color.cs" />
+    <Compile Include="Enums\Season.cs" />
+    <Compile Include="Enums\Shape.cs" />
+    <Compile Include="Interfaces\IFirTree.cs" />
     <Compile Include="MyForest.cs" />
     <Compile Include="Interfaces\IForest.cs" />
     <Compile Include="Interfaces\ITree.cs" />
     <Compile Include="Messanger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tree.cs" />
+    <Compile Include="FirTree.cs" />
+    <Compile Include="TreeFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,39 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Forest.Enums;
 using Forest.Interfaces;
 
 namespace Forest
 {
-    class MyForest:IForest
+    internal class MyForest : IForest
     {
-        ITree tree;
-        public List<ITree> Trees = new List<ITree>();
-        private Season season = Season.Summer;
+        private ITree _tree;
+        private readonly Creator _creator = new TreeFactory();
+        private readonly List<ITree> _trees = new List<ITree>();
+
         public MyForest()
         {
-            this.tree = Createtree();
-            Trees.Add(tree);
-            this.tree.Appear();
+            this._tree = _creator.CreateTree();
+            _trees.Add(_tree);
+            this._tree.Appear();
         }
-        public MyForest(ITree teTree)
+        public MyForest(ITree tree)
         {
-            this.tree = teTree;
-            Trees.Add(tree);
-            this.tree.Appear();
+            this._tree = tree;
+            _trees.Add(tree);
         }
-        private Tree Createtree()
+        public void SetSeason(Season season)
         {
-            Tree myTree = new Tree(this.season);
-            return myTree;
+            foreach (var tree in _trees)
+            {
+                tree.TreeOption(season);
+            }
         }
-        public Season TreeSeason
+        public void Add(ITree tree)
         {
-            get{return season;}
-            set { season = value; }
+            _trees.Add(tree);
+            this._tree = tree;
         }
-
-        public Color TreeColor { get { return tree.Colour; }}
-        public Shape TreeShape { get { return tree.TreeShape; } }
+        public void Remove(ITree tree)
+        {
+            _trees.Remove(tree);
+        }
     }
 }

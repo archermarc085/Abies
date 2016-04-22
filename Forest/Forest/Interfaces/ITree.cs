@@ -1,17 +1,18 @@
 ﻿using System;
+using Forest.Enums;
 
 namespace Forest.Interfaces
 {
      interface ITree
     {
-        Color Colour { get;  }
-        Shape TreeShape { get; }
-        int CountOfDays { get; set; }
+        Color Colour { get; }
+        Shape Shape { get; }
+        int Height { get; }
+        int Width { get; }
         void Appear();
         void Grow();
-        void DisplayTree();
+        void TreeOption(Season season);
         event EventHandler Born;
         event EventHandler Grown;
-        event EventHandler Die;
     }
 }

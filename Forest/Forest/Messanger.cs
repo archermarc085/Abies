@@ -9,13 +9,6 @@ namespace Forest
         {
             tree.Born += tree_Born;
             tree.Grown += tree_Grown;
-            tree.Die += tree_Die;
-        }
-
-        void tree_Die(object sender, EventArgs e)
-        {
-            if (sender is ITree)
-                Console.WriteLine("Abies died in Forest!");
         }
         void tree_Grown(object sender, EventArgs e)
         {

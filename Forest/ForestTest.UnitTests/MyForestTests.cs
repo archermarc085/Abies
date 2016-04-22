@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Forest;
+using Forest.Enums;
 using Forest.Interfaces;
 using NUnit.Framework;
 
@@ -16,16 +17,20 @@ namespace ForestTest.UnitTests
         [Test]
         public void Optons_Summer_GreenAndSlender()
         {
-           forest.TreeSeason = Season.Summer;
-           Assert.AreEqual(Color.Green,forest.TreeColor);
-           Assert.AreEqual(Shape.Slender, forest.TreeShape);
+            IFirTree treedTree = new FirTree();
+            forest.Add(treedTree);
+            forest.SetSeason(Season.Summer);
+            Assert.AreEqual(treedTree.Colour, Color.Green);
+            Assert.AreEqual(treedTree.Shape, Shape.Slender);
         }
         [Test]
         public void Optons_Winter_GreenAndSlender()
         {
-            forest.TreeSeason = Season.Winter;
-            Assert.AreEqual(Color.Green, forest.TreeColor);
-            Assert.AreEqual(Shape.Slender, forest.TreeShape);
+            IFirTree treedTree = new FirTree();
+            forest.Add(treedTree);
+            forest.SetSeason(Season.Winter);
+            Assert.AreEqual(treedTree.Colour, Color.Green);
+            Assert.AreEqual(treedTree.Shape, Shape.Slender);
         }
     }
 }
