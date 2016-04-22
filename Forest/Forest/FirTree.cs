@@ -10,8 +10,8 @@ namespace Forest
 {
      class FirTree : IFirTree
     {
-        private const int _interval = 50;
-        private const int _growDays = 300;  
+        private const int Interval = 50;
+        private const int GrowDays = 300;  
         private  Color _color;
         private  Shape _shape;
         private int _height = 0;
@@ -48,15 +48,15 @@ namespace Forest
                 var count = 0;
                 _height += 10;
                 _width += 10;
-                while ( _growDays > count)
+                while ( GrowDays > count)
                 {
-                    if (count == _growDays)
+                    if (count == GrowDays)
                     {
                         if (Grown != null)
                             Grown(this, EventArgs.Empty);
                               return;
                     }
-                    count += _interval;
+                    count += Interval;
                 } 
         }
         public event EventHandler Born;
